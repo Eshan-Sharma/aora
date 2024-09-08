@@ -10,7 +10,9 @@ export default function Root({ children }: PropsWithChildren) {
   return (
     <>
       <View className="flex-1 items-center justify-center bg-white">
-        <Text>Open up App.js to start working on your app!</Text>
+        <Text className="text-3xl font-black pl-3 md:pl-0 lg:pl-0">
+          DollarPe.
+        </Text>
         <StatusBar style="auto" />
       </View>
     </>
