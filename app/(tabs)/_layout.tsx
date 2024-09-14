@@ -13,7 +13,10 @@ const TabIcon = ({ icon, color, name, focused }) => {
         tintColor={color}
         className="w-6 h-6"
       />
-      <Text className={`${focused}?'font-psemibold':'font-pregular`}>
+      <Text
+        className={`${focused}?'font-psemibold':'font-pregular' text-xs`}
+        style={{ color: color }}
+      >
         {name}
       </Text>
     </View>
@@ -22,7 +25,19 @@ const TabIcon = ({ icon, color, name, focused }) => {
 const TabsLayout = () => {
   return (
     <>
-      <Tabs screenOptions={{ tabBarShowLabel: false }}>
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: "#FFA001",
+          tabBarInactiveTintColor: "#CDCDE0",
+          tabBarShowLabel: false,
+          tabBarStyle: {
+            backgroundColor: "#161622",
+            borderTopWidth: 1,
+            borderTopColor: "#232533",
+            height: 84,
+          },
+        }}
+      >
         <Tabs.Screen
           name="home"
           options={{
@@ -39,21 +54,6 @@ const TabsLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="create"
-          options={{
-            title: "Create",
-            headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.plus}
-                color={color}
-                name="Create"
-                focused={focused}
-              />
-            ),
-          }}
-        />
-        <Tabs.Screen
           name="bookmark"
           options={{
             title: "Bookmark",
@@ -63,6 +63,22 @@ const TabsLayout = () => {
                 icon={icons.bookmark}
                 color={color}
                 name="Bookmark"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+
+        <Tabs.Screen
+          name="create"
+          options={{
+            title: "Create",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.plus}
+                color={color}
+                name="Create"
                 focused={focused}
               />
             ),
